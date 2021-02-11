@@ -141,26 +141,6 @@
                     }
                     break;
 
-                    case 'filtro_estilo':
-          
-                        try {
-                            $daoshop = new DAOShop();
-                            $rlt = $daoshop->select_distinct_estilo();
-                        } catch (Exception $e) {
-                            echo json_encode("error");
-                        }
-                        
-                        if (!$rlt) {
-                            echo json_encode("error");
-                        }else{
-                            $prod = array();
-                            foreach ($rlt as $value) {
-                                array_push($prod, $value);
-                            }
-                            echo json_encode($prod);
-                            exit();
-                        }
-                        break;
 
                     case 'filtro_categoria':
           
