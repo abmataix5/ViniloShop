@@ -1,0 +1,185 @@
+.Button_green {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #226b00;
+    color: #fff;
+    transition: background-color .15s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .Button_green:hover, .btn-bootstrap:focus {
+    background-color: #226b00;
+  }
+  
+  .Button_green:active {
+    background-color: #226b00;
+  }
+
+
+  .Button_whitte {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #feffff;
+    color: #fff;
+    transition: background-color .15s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .Button_whitte:hover, .btn-bootstrap:focus {
+    background-color: #feffff;
+  }
+  
+  .Button_whitte:active {
+    background-color: #feffff;
+  }
+
+
+
+.datatable{ position:absolute;
+  z-index:1;
+  background-color:#FFFFFF;
+  top:200px;
+  left:500px;
+  width:500px;
+  height:100px;
+ }
+
+
+
+
+
+
+  .Button_red {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #fd0808;
+    color: #fff;
+    transition: background-color .15s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .Button_green:hover, .btn-bootstrap:focus {
+    background-color: #fd0808;
+  }
+  
+  .Button_green:active {
+    background-color: #fd0808;
+  }
+
+
+
+  .Button_blue {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #0069d9;
+    color: #fff;
+    transition: background-color .15s ease-in-out;
+    cursor: pointer;
+  }
+  
+  .Button_blue:hover, .btn-bootstrap:focus {
+    background-color: #0069d9;
+  }
+  
+  .Button_blue:active {
+    background-color: #0069d9;
+  }
+
+
+/*   .Button_blue1 {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #ffffff;
+    color: #fff;
+    transition: background-color .15s ease-in-out;
+  }
+  
+  .Button_blue1:hover, .btn-bootstrap:focus {
+    background-color: #0069d9;
+  }
+  
+  .Button_blue1:active {
+    background-color: #0069d9;
+  } */
+
+  
+  .Button_black {
+    padding: .375rem .75rem;
+    border-radius: .25rem;
+    background-color: #000000;
+    color: #fff;
+    transition: background-color .15s ease-in-out;
+        cursor: pointer;
+  }
+  
+  .Button_black:hover, .btn-bootstrap:focus {
+    background-color: #000000;
+  }
+  
+  .Button_black:active {
+    background-color: #000000;
+  }
+
+
+
+  .botonimagen{
+    background-image:url(../images/spain.png);
+    background-repeat:no-repeat;
+    height:10px;
+    width:10px;
+    background-position:center;
+  }
+
+
+
+  /* Home */
+
+  #salto_shop{
+
+cursor:pointer;
+background-color: #000000;
+color: #feffff;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+  }
+
+
+  /* Shop */
+
+  #container_shop{
+    text-align: center;
+  }
+  
+  .imga1 {
+
+    padding: 10px 10px 10px 10px;
+    margin: 10px;
+    display:inline-block;
+    width: 250px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+  /* Details */
+
+  .img_details{
+    width: 100px; height: 100px;
+  }
+
+  table {
+    width: 300%;
+    height: 300px;
+  }
+  #volver_shop{
+    background-color: #000000;
+    color: #fff;
+    cursor:pointer;
+  }
+  
+
+  
+
+
+
+  
+  

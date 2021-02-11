@@ -1,0 +1,8 @@
+#contenido1{ position:absolute;
+    z-index:1;
+    background-color:#FFFFFF;
+    top:200px;
+    left:500px;
+    width:500px;
+    height:100px;
+   }

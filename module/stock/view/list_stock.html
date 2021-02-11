@@ -1,0 +1,81 @@
+
+   <!DOCTYPE html> 
+   <html lang="zxx">
+  
+   <body>
+  
+           
+      
+         <!-- banner -->
+         <div class="inner_page-banner one-img">
+         </div>
+         <!--//banner -->
+
+
+         <div id="contenido">
+            <div class="container">
+               <div class="row">
+                     <h3 data-tr="Stock">Stock</h3>
+               </div>
+               <div class="row">
+                  <p>
+                    <a class="Button_blue" href="index.php?page=controller_stock&op=create" data-tr="Crear nuevo producto"></a>
+                    <a class="Button_red" href="index.php?page=controller_stock&op=deleteall" data-tr="Borrar todos"></a>
+                    </p>
+                    
+                  
+                  <table id="data_table" border="5" class="display">
+                    <thead>
+                        <tr>
+                            <td width=125 data-tr="CODIGO DEL PRODUCTO"><b></b></th>
+                            <td width=125 data-tr="CODIGO DEL GRUPO"><b></b></th>
+                            <td width=125 data-tr="NOMBRE DEL GRUPO"><b></b></th>
+                            <th width=350 data-tr="NOMBRE DEL DISCO"><b></b></th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                          ini_set('display_errors', 0);
+                        //   $count = $daouser->select_count_user();
+                          if ($count == 0){
+        
+        
+                            // if ($rdo->num_rows == 0){
+                                echo '<tr>';
+                                echo '<td align="center"  colspan="3">NO HAY NINGÚN PRODUCTO EN STOCK</td>';
+                                echo '</tr>';
+                            }else{
+                                foreach ($rdo as $row) {
+                                     echo '<tr>';
+                                     echo '<td width=125>'. $row['cod_producto'] . '</td>';
+                                     echo '<td width=125>'. $row['cod_grupo'] . '</td>';
+                                     echo '<td width=125>'. $row['nombre_grupo'] . '</td>';
+                                       echo '<td width=350>';
+                                       print ("<div class='Button_black cod_producto'  data-tr='Mostrar'  id='".$row['cod_producto']."'>Read Modal</div>");
+                                     echo '<a class="Button_blue"  href="index.php?page=controller_stock&op=read_modal&id='.$row['cod_producto'].'" data-tr="Mostrar">Mostrar</a>';
+                                     echo '&nbsp;';
+                                     echo '<a class="Button_green" href="index.php?page=controller_stock&op=update&id='.$row['cod_producto'].'" data-tr="Editar">Editar</a>';
+                                     echo '&nbsp;';
+                                     echo '<a class="Button_red" href="index.php?page=controller_stock&op=delete&id='.$row['cod_producto'].'" data-tr="Borrar">Borrar</a>';
+                                     echo '</td>';
+                                     echo '</tr>';
+                                }
+                            }
+                        ?>
+                        </tbody>
+                    </table>
+        
+                 
+        
+               </div>
+            </div>
+        </div>
+        
+        <section id="user_modal">
+         
+        </section>
+        
+        
+      
+      </body>
+   </html>
