@@ -187,7 +187,7 @@ function salto_categorias(){
       for (let index = 0; index < data_filtros.length; index++) {
     
         element = element +'<li>'+
-        '<input type="checkbox" class="checked" id ="'+data_filtros[index].nombre_grupo+'">'+
+        '<input type="checkbox" class="check_grupo" id ="'+data_filtros[index].cod_grupo+'">'+
         '<span class="span" >'+data_filtros[index].nombre_grupo+'</span>'+
          '</li>';
     
@@ -198,84 +198,215 @@ function salto_categorias(){
   }
 
 
-  function pintar_filtros_estilomusical(){
+/* Hla filtro */
 
-    $.ajax({
+function filtros(){
 
-      type: "GET",
-      dataType: "json",
-      url: "module/shop/controller/controller_shop.php?op=filtro_estilo",
+  var checks = "";
+  var count1 = 0, count2 = 0,count3 = 0, count4 = 0,count5 = 0, count6 = 0, count7 = 0, count8 = 0, count9 = 0;
+  
+
+  //////////////////////////////////////////// POR ESTILO MUSICAL /////////////////////////////////////////////////////////////////////////
+  $('#check_rock').click(function () {
+    console.log("Debug Check1");
+        if(checks === ""){
     
-    })
-    
-    .done(function( data_filtros) {
-    
-      console.log(data_filtros);
-      console.log("ola filtrets");
-    
-    
-      var element = "";
-      for (let index = 0; index < data_filtros.length; index++) {
-    
-        element = element +'<li>'+
-        '<input type="checkbox" class="checked" id ="'+data_filtros[index].estilo_musical+'">'+
-        '<span class="span" >'+data_filtros[index].estilo_musical+'</span>'+
-         '</li>';
-    
-      }
-      $('#filtros_estilo').html(element);
-    })
-        
+            checks = "estilo_musical = 'Rock'";
+            count1=count1+1;
+
+        }else if(count1 == 1){
+            checks = checks.replace("OR estilo_musical = 'Rock'", "");
+            checks = checks.replace("estilo_musical = 'Rock'", "");
+            count1=0;
+            }else{
+                checks = checks + "OR estilo_musical = 'Rock'";
+                count1=count1+1;
+        }
+    });
+
+    $('#check_pop').click(function () {
+        console.log("Debug Check2");
+        if(checks === ""){
+            checks = "estilo_musical = 'Pop'";
+            count2=count2+1;
+
+        }else if(count2 == 1){
+            checks = checks.replace("OR estilo_musical = 'Pop'", "");
+            checks = checks.replace("estilo_musical = 'Pop'", "");
+            count2=0;
+            }else{
+                checks = checks + "OR estilo_musical = 'Pop'";
+                count2=count2+1;
+        }
+    });
+    $('#check_electronica').click(function () {
+        console.log("Debug Check2");
+        if(checks === ""){
+            checks = "estilo_musical = 'Electronica'";
+            count3=count3+1;
+
+        }else if(count3 == 1){
+            checks = checks.replace("OR estilo_musical = 'Electronica'", "");
+            checks = checks.replace("estilo_musical = 'Electronica'", "");
+            count3=0;
+            }else{
+                checks = checks + "OR estilo_musical = 'Electronica'";
+                count3=count3+1;
+        }
+    });
+
+    $('#check_clasica').click(function () {
+        console.log("Debug Check2");
+        if(checks === ""){
+            checks = "estilo_musical = 'Clasica'";
+            count4=count4+1;
+
+        }else if(count4 == 1){
+            checks = checks.replace("OR estilo_musical = 'Clasica'", "");
+            checks = checks.replace("estilo_musical = 'Clasica'", "");
+            count4=0;
+            }else{
+                checks = checks + "OR estilo_musical = 'Clasica'";
+                count4=count4+1;
+        }
+    });
+    $('#check_rap').click(function () {
+        console.log("Debug Check2");
+        if(checks === ""){
+            checks = "estilo_musical = 'Rap'";
+            count5=count5+1;
+
+        }else if(count5 == 1){
+            checks = checks.replace("OR estilo_musical = 'Rap'", "");
+            checks = checks.replace("estilo_musical = 'Rap'", "");
+            count5=0;
+            }else{
+                checks = checks + "OR estilo_musical = 'Rap'";
+                count5=count5+1;
+        }
+    });
+
+
+  /////////////////////////////////POR Categoria/////////////////////////////
+
+  $('#check_disco').click(function () {
+    console.log("Debug Check2");
+    if(checks === ""){
+        checks = "categoria = 'Disco'";
+        count6=count6+1;
+
+    }else if(count6 == 1){
+        checks = checks.replace("AND categoria = 'Disco'", "");
+        checks = checks.replace("categoria = 'Disco'", "");
+        count6=0;
+        }else{
+            checks = checks + "AND categoria = 'Disco'";
+            count6=count6+1;
+    }
+});
+$('#check_vinilo').click(function () {
+    console.log("Debug Check2");
+    if(checks === ""){
+        checks = "categoria = 'Vinilo'";
+        count7=count7+1;
+
+    }else if(count7 == 1){
+        checks = checks.replace("AND categoria = 'Vinilo'", "");
+        checks = checks.replace("categoria = 'Vinilo'", "");
+        count7=0;
+        }else{
+            checks = checks + "AND categoria = 'Vinilo'";
+            count7=count7+1;
+    }
+});
+
+ 
+
+  $('#check_camiseta').click(function () {
+    console.log("Debug Check2");
+    if(checks === ""){
+        checks = "categoria = 'Camiseta'";
+        count8=count8+1;
+
+    }else if(count8 == 1){
+        checks = checks.replace("AND categoria = 'Camiseta'", "");
+        checks = checks.replace("categoria = 'Camiseta'", "");
+        count8=0;
+        }else{
+            checks = checks + "AND categoria = 'Camiseta'";
+            count8=count8+1;
+    }
+});
+
+$('#check_poster').click(function () {
+    console.log("Debug Check2");
+    if(checks === ""){
+        checks = "categoria = 'Poster'";
+        count9=count9+1;
+
+    }else if(count9 == 1){
+        checks = checks.replace("AND categoria = 'Poster'", "");
+        checks = checks.replace("categoria = 'Poster'", "");
+        count9=0;
+        }else{
+            checks = checks + "AND categoria = 'Poster'";
+            count9=count9+1;
+    }
+});
+
+
+
+
+//////////////////////////////Boton para filtrar///////////////////////
+  $('#filtrar_check').click(function () {
+  console.log("Debug enviar");
+  if(checks === ""){
+      console.log("olaasas");
+      $('#container_shop').empty();
+      ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
+
+  }else{
+      $('#container_shop').empty();
+      ajaxForSearch("module/shop/controller/controller_shop.php?op=op_filtros&checks=" + checks);
   }
+  });
 
-  function pintar_filtros_categoria(){
+}
 
-    $.ajax({
 
-      type: "GET",
-      dataType: "json",
-      url: "module/shop/controller/controller_shop.php?op=filtro_categoria",
-    
-    })
-    
-    .done(function( data_filtros) {
-    
-      console.log(data_filtros);
-      console.log("ola filtrets");
-    
-    
-      var element = "";
-      for (let index = 0; index < data_filtros.length; index++) {
-    
-        element = element +'<li>'+
-        '<input type="checkbox" class="checked" id ="'+data_filtros[index].categoria+'">'+
-        '<span class="span" >'+data_filtros[index].categoria+'</span>'+
-         '</li>';
-    
-      }
-      $('#filtros_categoria').html(element);
-    })
-        
-  }
 
+$('#barato').click(function () {
+    console.log("Debug PRECIO");
+
+});
 
 /* Clicks filtros */
 
-  function filtros(){
+/*   function filtros(){
     var count_click = 0;
     var check_filtros = "";
 
-        $(document).on('click','#rolling',function () {
-        console.log("Dentro check");
-        
-        var check_filtros = "Rolling Stones";
+        $(document).on('click','.check_grupo',function () {
 
-                
-                if(count_click == 0){
+        var grupo = this.getAttribute('id');
+        localStorage.setItem('grupo',JSON.stringify(grupo));
+       
+       var grupo2 =JSON.parse(localStorage.getItem('grupo'));
+      
+      console.log(grupo);
+      console.log(grupo);
+      
+
+  
+        var check_filtros = grupo;
+
+        console.log(check_filtros);
+                if(check_filtros ===  grupo2 ){
                 ajaxForSearch("module/shop/controller/controller_shop.php?op=op_filtros&checks=" + check_filtros);
                 count_click = count_click + 1;
                 console.log(count_click);
-                } else if(count_click == 1){
+                } else if(check_filtros !=  grupo2){
+                  check_filtros = grupo2;
                     check_filtros = check_filtros.replace("OR nombre_grupo = 'España'", "");
                     ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
                     count_click = 0;
@@ -368,7 +499,94 @@ function salto_categorias(){
                                     }
                             });
 
+  } */
+
+
+
+  /* carga src api */
+
+  function api_maps() {
+
+    if (document.getElementById('cargar_maps') != null) {
+        
+      var script = document.createElement('script');
+      script.src = "https://maps.googleapis.com/maps/api/js?key=" + "AIzaSyDGZQiAiNiB8a3IicipOMsvpb0tIMab2aM";
+      script.async;
+      script.defer;
+      document.getElementsByTagName('script')[0].parentNode.appendChild(script);
+      console.log(script + "Script src maps");
+    }
   }
+
+
+  /* Carregar maps */
+
+  function map_shop(){
+
+    $(document).on('click','.mapdetails',function () {
+
+        $('<div></div>').attr({'id': 'mapshop', }).appendTo('#cargar_maps');
+
+        $('#all_maps').empty();
+        $('.side-bar').empty();
+        
+        console.log("olamaps");
+
+     
+       $.ajax({
+    
+        type: "GET",
+        dataType: "json",
+        url: "module/shop/controller/controller_shop.php?op=data_shop",
+      
+      })
+      
+     
+       .done(function( data_map ) {
+           console.log(data_map);
+                var markers = [];
+    
+                function initialize() {
+    
+                
+    
+                    var map = new google.maps.Map(document.getElementById('mapshop'), {
+                        zoom: 2,
+                        center: new google.maps.LatLng(	40.4636688, 	-3.7492199),
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                    });
+                
+                    var infowindow = new google.maps.InfoWindow();
+    
+                    for (var i = 0  ; i < data_map.length; i++) {
+                    console.log(data_map.latitud);
+    
+                        var newMarker = new google.maps.Marker({
+                            position: new google.maps.LatLng(data_map[i].latitud, data_map[i].longitud),
+                            map: map,
+                            title: data_map[i].destino
+                        });
+    
+                        google.maps.event.addListener(newMarker, 'click', (function (newMarker, i) {
+                            return function () {
+                                var infomap = '<div><p>'+data_map[i].categoria+'</p><br>Precio : '+data_map[i].precio+'<br><img src="'+data_map[i].ruta+'"></div>'
+                                // infowindow.setContent( data_map[i].destino);
+                                infowindow.setContent(infomap);
+                                infowindow.open(map, newMarker);
+                            
+                            }
+                        })(newMarker, i));
+    
+                        markers.push(newMarker);
+                    }
+    }
+    
+    
+    initialize();
+    })// end done
+    
+    });
+    }
 
 
 
@@ -379,9 +597,8 @@ $(document).ready(function(){
    salto_categorias();
    filtros();
    pintar_filtros_nomgrupo();
-   pintar_filtros_estilomusical();
-   pintar_filtros_categoria();
-
+   api_maps();
+   map_shop(); 
 
 });
 

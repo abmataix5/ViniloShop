@@ -175,6 +175,36 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     color: #fff;
     cursor:pointer;
   }
+
+  /* Boton filtrar check */
+  #filtrar_check{
+    background-color: #000000;
+    color: #fff;
+    cursor:pointer;
+    border-style:double;
+  }
+
+  #check_precio{
+    background-color: #000000;
+    color: #fff;
+    cursor:pointer;
+    border-style:double;
+  }
+
+  #mapshop {
+    height: 70%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  .mapdetails{
+    cursor:pointer;
+    
+  }
+
+  .owl-item{
+    margin-top: 170px;
+  }
   
 
   

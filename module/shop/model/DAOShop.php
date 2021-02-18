@@ -33,7 +33,7 @@ class DAOShop{
     }
 
     function select_filtros($checks){
-        $sql = "SELECT * FROM stock WHERE nombre_grupo = '$checks'";
+        $sql = "SELECT * FROM stock WHERE $checks";
         
         $conexion = connect::con();
         $res = mysqli_query($conexion, $sql);
@@ -42,7 +42,7 @@ class DAOShop{
     } 
 
     function select_distinct_group(){
-        $sql = "SELECT DISTINCT nombre_grupo FROM stock";
+        $sql = "SELECT  nombre_grupo,cod_grupo FROM stock GROUP BY nombre_grupo";
         
         $conexion = connect::con();
         $res = mysqli_query($conexion, $sql);

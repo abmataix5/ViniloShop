@@ -68,7 +68,7 @@
                      </li>
                    
                      <li class="nav-item">
-                        <a href="contact.html" class="nav-link" data-tr="Contacto">Contact</a>
+                        <a  href="index.php?page=controller_contact&op=list" class="nav-link" data-tr="Contacto">Contact</a>
                      </li>
                   </ul>
                </div>

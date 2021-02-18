@@ -18,6 +18,9 @@ if(!isset($_GET['page'])){
 			case "controller_order";
 			include("module/stock_order/controller/".$_GET['page'].".php");
 			break;
+			case "controller_contact";
+			include("module/contact/controller/".$_GET['page'].".php");
+			break;
 		case "404";
 			include("view/inc/error".$_GET['page'].".php");
 			break;
