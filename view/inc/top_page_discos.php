@@ -57,7 +57,12 @@
      <!--  <script src="module/stock/view/filter_page.js"></script> -->
       
  
-      
+     <script type="text/javascript"> 
+         function cambiarModo() { 
+           var cuerpoweb = document.body; 
+           cuerpoweb.classList.toggle("oscuro"); 
+         } 
+       </script>
     
 
 

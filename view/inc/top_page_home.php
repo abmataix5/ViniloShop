@@ -43,6 +43,13 @@
       <script type="text/javascript" src="view/inc/translate.js"></script>
 <script type="text/javascript" src="module/home/view/home.js"></script>
 
+    
+<script type="text/javascript"> 
+         function cambiarModo() { 
+           var cuerpoweb = document.body; 
+           cuerpoweb.classList.toggle("oscuro"); 
+         } 
+       </script>
 
 
 

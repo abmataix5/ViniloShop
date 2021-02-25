@@ -174,6 +174,9 @@
          });
      
     }
+
+
+    
     
 $(document).ready(function () {   
   carousel_owl();

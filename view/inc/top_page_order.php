@@ -47,7 +47,12 @@
 <script type="text/javascript" src="view/js/jqwidgets/jqwidgets/jqxdropdownlist.js"></script>
 <script type="text/javascript" src="view/js/jqwidgets/scripts/demos.js"></script> 
       
-    
+<script type="text/javascript"> 
+         function cambiarModo() { 
+           var cuerpoweb = document.body; 
+           cuerpoweb.classList.toggle("oscuro"); 
+         } 
+       </script>
 
 
    </head>

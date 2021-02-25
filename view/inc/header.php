@@ -39,6 +39,7 @@
                            <li>
                            <a class = "boton_en">English</a>
                            </li>
+                           <li> <a type="button" class="btn btn-dark" onclick="cambiarModo()">Oscuro / Claro</a></li>
                            
                         </ul>
                      </div>
