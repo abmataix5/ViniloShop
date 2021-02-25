@@ -145,11 +145,29 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 
   /* Shop */
+  #title_Shop{
+    text-align: center;
+  }
 
   #container_shop{
     text-align: center;
   }
-  
+  #details{
+    text-align: center;
+    width: 55%;
+    height: 500px;
+  }
+  #api{
+    margin-left: 20px;
+    text-align: center;
+    width: 700%;
+    height: 500px;
+  }
+ 
+  .imgapi{
+    float: left;
+    
+  }
   .imga1 {
 
     padding: 10px 10px 10px 10px;
@@ -205,7 +223,27 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   .owl-item{
     margin-top: 170px;
   }
-  
+
+  /* pagination */
+  #titulo_api{
+    text-align:center;
+    margin-top: revert;
+  }
+
+  #loadmore{
+    background-color: #000000;
+    color: #fff;
+    cursor:pointer;
+    border-style:double;
+    margin-inline: auto;
+    justify-content: center
+  }
+
+  .imgapi{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 20px;
+  }
 
   
 

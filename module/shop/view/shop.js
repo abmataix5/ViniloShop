@@ -3,6 +3,8 @@
   function ajaxForSearch(durl) {
     var url=durl;
     console.log(url);
+
+
     $.ajax({
        type: "GET",
        dataType: "JSON",
@@ -37,6 +39,7 @@
             $('#container_shop').html(no_existe);   
         }else if(data_shop.length === 1){
            $('#container_shop').empty();
+           $('#pages').empty();
         
            var element ="";
            for(var i=0; i < data_shop.length; i++){
@@ -45,7 +48,7 @@
          
             
            }  
-           $('#container_shop').html(element);  
+           $('#details').html(element);  
         }
 
         /* Details */
@@ -61,7 +64,7 @@
        details = '<div id="details">'+
        '        <table border="2px"> '+
                     ' <tr>'+
-                        '<td rowspan="7"><img  class ="img_details" src="'+data_shop.ruta+'"></td>'+
+                        '<td rowspan="8"><img  class ="img_details" src="'+data_shop.ruta+'"></td>'+
                         '<td>Codigo del producto</td>'+
                         '<td>'+data_shop.cod_producto+'</td>'+
                     '</tr>'+
@@ -94,14 +97,22 @@
                     '<tr>'+
                     '<td>Codigo de compra</td>'+
                     '<td>'+data_shop.cod_compra+'</td>'+
+
+                    '<tr>'+
+                    '<td>Precio</td>'+
+                    '<td>'+data_shop.precio+'</td>'+
                 '</tr>'+
                 '<tr><td><button id="volver_shop">Volver</button></td></tr>'
                 
             '</table>'
 
+            
        '</div>'
-  
-       $('#container_shop').html(details);
+       
+       $('#details').html(details);
+
+       /* Productos relacionados */
+     
           
        }
    })// end done
@@ -110,30 +121,47 @@
 
 /* Click details */
 
-$(document).on('click','.imga1',function () {
-    var id = this.getAttribute('id');
-    console.log(id);
-  
-    // $('#details').empty();
-   ajaxForSearch("module/shop/controller/controller_shop.php?op=list_modal&modal=  "+ id);
-  
-  
-  });
+    $(document).on('click','.imga1',function () {
+
+       /* Añadimos elemento details */
+        $('<div></div>').attr({'id': 'details', }).appendTo('#shop_div');
+
+        var id = this.getAttribute('id');
+        console.log(id);
+        $('#pages').empty();
+     
+
+            ajaxForSearch("module/shop/controller/controller_shop.php?op=list_modal&modal=  "+ id);
+
+   
+    
+    });
+
+
 
 /* Boton para volver al shop desde el details */
-$(document).on('click','#volver_shop',function () {
- 
-    $('#details').empty();
-   
-   ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
- 
- 
- });
+
+        $(document).on('click','#volver_shop',function () {
+
+            /* Eliminamos elemento details */
+            $('#details').remove();
+
+            /* Pagination */
+            var offset = 0;
+            pagination(); 
+    
+            $('#details').empty();
+                
+            ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop&offset="+offset);
+            
+        
+        });
 
 /* Saltos */
 
 function salto_categorias(){
 
+    let offset = 0;
        if (document.getElementById('container_shop')) {
        console.log("dennnnnnnnnnntro");
            var drop= JSON.parse(localStorage.getItem('categoria'));
@@ -143,7 +171,7 @@ function salto_categorias(){
 
            if (drop===null){
                console.log("del menú");
-               ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
+               ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop&offset=" + offset);
 
            } if(drop!= null && drop.length > 1){
             console.log("de categorias");
@@ -359,11 +387,12 @@ $('#check_poster').click(function () {
 
 //////////////////////////////Boton para filtrar///////////////////////
   $('#filtrar_check').click(function () {
+      let offset = 0;
   console.log("Debug enviar");
   if(checks === ""){
       console.log("olaasas");
       $('#container_shop').empty();
-      ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
+      ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop&offset=");
 
   }else{
       $('#container_shop').empty();
@@ -380,126 +409,6 @@ $('#barato').click(function () {
 
 });
 
-/* Clicks filtros */
-
-/*   function filtros(){
-    var count_click = 0;
-    var check_filtros = "";
-
-        $(document).on('click','.check_grupo',function () {
-
-        var grupo = this.getAttribute('id');
-        localStorage.setItem('grupo',JSON.stringify(grupo));
-       
-       var grupo2 =JSON.parse(localStorage.getItem('grupo'));
-      
-      console.log(grupo);
-      console.log(grupo);
-      
-
-  
-        var check_filtros = grupo;
-
-        console.log(check_filtros);
-                if(check_filtros ===  grupo2 ){
-                ajaxForSearch("module/shop/controller/controller_shop.php?op=op_filtros&checks=" + check_filtros);
-                count_click = count_click + 1;
-                console.log(count_click);
-                } else if(check_filtros !=  grupo2){
-                  check_filtros = grupo2;
-                    check_filtros = check_filtros.replace("OR nombre_grupo = 'España'", "");
-                    ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
-                    count_click = 0;
-                }
-        });
-
-
-        $(document).on('click','#queen',function () {
-            console.log("Dentro check");
-            
-            var check_filtros = "Queen";
-    
-                    
-                    if(count_click == 0){
-                    ajaxForSearch("module/shop/controller/controller_shop.php?op=op_filtros&checks=" + check_filtros);
-                    count_click = count_click + 1;
-                    console.log(count_click);
-                    } else if(count_click == 1){
-                        check_filtros = check_filtros.replace("OR nombre_grupo = 'España'", "");
-                        ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
-                        count_click = 0;
-                    }
-            });
-
-            $(document).on('click','#fito',function () {
-                console.log("Dentro check fito");
-                
-                var check_filtros = "Fito y Fitipaldis";
-        
-                        
-                        if(count_click == 0){
-                        ajaxForSearch("module/shop/controller/controller_shop.php?op=op_filtros&checks=" + check_filtros);
-                        count_click = count_click + 1;
-                        console.log(count_click);
-                        } else if(count_click == 1){
-                            check_filtros = check_filtros.replace("OR nombre_grupo = 'España'", "");
-                            ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
-                            count_click = 0;
-                        }
-                });
-
-                $(document).on('click','#scorpions',function () {
-                    console.log("Dentro check fito");
-                    
-                    var check_filtros = "Scorpions";
-            
-                            
-                            if(count_click == 0){
-                            ajaxForSearch("module/shop/controller/controller_shop.php?op=op_filtros&checks=" + check_filtros);
-                            count_click = count_click + 1;
-                            console.log(count_click);
-                            } else if(count_click == 1){
-                                check_filtros = check_filtros.replace("OR nombre_grupo = 'España'", "");
-                                ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
-                                count_click = 0;
-                            }
-                    });
-
-                    $(document).on('click','#beatles',function () {
-                        console.log("Dentro check fito");
-                        
-                        var check_filtros = "The Beatles";
-                
-                                
-                                if(count_click == 0){
-                                ajaxForSearch("module/shop/controller/controller_shop.php?op=op_filtros&checks=" + check_filtros);
-                                count_click = count_click + 1;
-                                console.log(count_click);
-                                } else if(count_click == 1){
-                                    check_filtros = check_filtros.replace("OR nombre_grupo = 'España'", "");
-                                    ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
-                                    count_click = 0;
-                                }
-                        });
-
-                        $(document).on('click','#cox',function () {
-                            console.log("Dentro check fito");
-                            
-                            var check_filtros = "Carl Cox";
-                    
-                                    
-                                    if(count_click == 0){
-                                    ajaxForSearch("module/shop/controller/controller_shop.php?op=op_filtros&checks=" + check_filtros);
-                                    count_click = count_click + 1;
-                                    console.log(count_click);
-                                    } else if(count_click == 1){
-                                        check_filtros = check_filtros.replace("OR nombre_grupo = 'España'", "");
-                                        ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop");
-                                        count_click = 0;
-                                    }
-                            });
-
-  } */
 
 
 
@@ -507,15 +416,15 @@ $('#barato').click(function () {
 
   function api_maps() {
 
-    if (document.getElementById('cargar_maps') != null) {
+     if (document.getElementById('mapshop') != null) { 
         
       var script = document.createElement('script');
       script.src = "https://maps.googleapis.com/maps/api/js?key=" + "AIzaSyDGZQiAiNiB8a3IicipOMsvpb0tIMab2aM";
       script.async;
       script.defer;
       document.getElementsByTagName('script')[0].parentNode.appendChild(script);
-      console.log(script + "Script src maps");
-    }
+      
+     } 
   }
 
 
@@ -525,19 +434,20 @@ $('#barato').click(function () {
 
     $(document).on('click','.mapdetails',function () {
 
-        $('<div></div>').attr({'id': 'mapshop', }).appendTo('#cargar_maps');
 
+        $('<div></div>').attr({'id': 'mapshop', }).appendTo('#cargar_maps');
         $('#all_maps').empty();
         $('.side-bar').empty();
-        
-        console.log("olamaps");
+        api_maps();
+        console.log("holamaps");
 
+     
      
        $.ajax({
     
         type: "GET",
         dataType: "json",
-        url: "module/shop/controller/controller_shop.php?op=data_shop",
+        url: "module/shop/controller/controller_shop.php?op=all_data_stock",
       
       })
       
@@ -589,17 +499,97 @@ $('#barato').click(function () {
     }
 
 
+function pagination(){
+    
+console.log("in pages");
+
+        $.ajax({
+
+            type: "GET",
+            dataType: "json",
+            url: "module/shop/controller/controller_shop.php?op=data_pag",
+        
+        })
+        
+        .done(function( data_filtros) {
+
+
+                var total_products = data_filtros.length;
+                console.log(total_products);
+
+                let pages = (total_products / 9);
+                
+                /* Añadimos esto para que no se pierda ningun producto*/
+                    if(pages %2 != 0){
+                        pages = pages +1;
+                    }
+                    console.log(pages + 'num_paginas');
+                 /* Añadimos esto para que no se pierda ningun producto*/
+            
+
+                    $("#pages").bootpag({
+                        total: pages,
+                        page: 1,
+                        maxVisible: pages,
+                        next: '-->',
+                        prev: '<--'
+                    }).on("page", function (e, num) {
+                        let offset = 9 * (num - 1);
+                        ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop&offset=" + offset);
+                        });
+
+        })
+
+
+}
+
+
+function api_books(){
+
+    $('<div></div>').attr({'id': 'load_Api', }).appendTo('#api_div');
+
+    limit = 6;
+
+    $.ajax({
+        type: 'GET',
+        dataType: "json",
+        url: "https://www.googleapis.com/books/v1/volumes?q=rollingsotnes",
+    }).done(function (data) {
+        
+            var DatosJson = JSON.parse(JSON.stringify(data));
+            DatosJson.items.length = limit;
+           console.log(DatosJson.items.length);
+
+
+            for (i = 0; i < DatosJson.items.length; i++) {
+                var ElementDiv = document.createElement('div');
+                ElementDiv.innerHTML ='<div class="imgapi">  <img  src="'+ data['items'][i]['volumeInfo']['imageLinks']['thumbnail'] +'" class="img-thumbnail" alt=""> '+
+                ' <div class="banner-right-icon">  <button  id="salto_shop" class="api">'+ DatosJson.items[i].volumeInfo.title +'</button> </div>   </div>';
+               
+               
+                document.getElementById("load_Api").appendChild(ElementDiv); 
+                
+            }
+           
+        });
+
+}
+
+
 
 /* Document ready con funciones anteriores */
 
-$(document).ready(function(){
 
+
+$(document).ready(function(){
+   
    salto_categorias();
    filtros();
    pintar_filtros_nomgrupo();
    api_maps();
    map_shop(); 
-
+   pagination(); 
+   api_books();
 });
 
 

@@ -17,7 +17,7 @@
           
             try {
                 $daoshop = new DAOShop();
-                $rlt = $daoshop->select_all_data();
+                $rlt = $daoshop->select_all_data($_GET['offset']);
             } catch (Exception $e) {
                 echo json_encode("error");
             }
@@ -34,6 +34,47 @@
             }
             break;
 
+            case 'all_data_stock':
+          
+                try {
+                    $daoshop = new DAOShop();
+                    $rlt = $daoshop->all_data_Stock();
+                } catch (Exception $e) {
+                    echo json_encode("error");
+                }
+                
+                if (!$rlt) {
+                    echo json_encode("error");
+                }else{
+                    $prod = array();
+                    foreach ($rlt as $value) {
+                        array_push($prod, $value);
+                    }
+                    echo json_encode($prod);
+                    exit();
+                }
+                break;
+
+            case 'data_pag':
+          
+                try {
+                    $daoshop = new DAOShop();
+                    $rlt = $daoshop->select_all_data_COUNT();
+                } catch (Exception $e) {
+                    echo json_encode("error");
+                }
+                
+                if (!$rlt) {
+                    echo json_encode("error");
+                }else{
+                    $prod = array();
+                    foreach ($rlt as $value) {
+                        array_push($prod, $value);
+                    }
+                    echo json_encode($prod);
+                    exit();
+                }
+                break;
 
             case 'list_modal':
                 try {
@@ -166,7 +207,26 @@
 
 
 
-        
+                        case 'count_shop':
+          
+                            try {
+                                $daoshop = new DAOShop();
+                                $rlt = $daoshop->count_products();
+                            } catch (Exception $e) {
+                                echo json_encode("error");
+                            }
+                            
+                            if (!$rlt) {
+                                echo json_encode("error");
+                            }else{
+                                $prod = array();
+                                foreach ($rlt as $value) {
+                                    array_push($prod, $value);
+                                }
+                                echo json_encode($prod);
+                                exit();
+                            }
+                            break;
 
  
 

@@ -4,7 +4,25 @@ include($path . "/model/connect.php");
 
 class DAOShop{
 
-    function select_all_data(){
+    function select_all_data($offset){
+        $sql = "SELECT * FROM stock LIMIT 9 OFFSET $offset";
+        
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql);
+        connect::close($conexion);
+        return $res;
+    }
+
+    function all_data_Stock(){
+        $sql = "SELECT * FROM stock";
+        
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql);
+        connect::close($conexion);
+        return $res;
+    }
+
+    function select_all_data_COUNT(){
         $sql = "SELECT * FROM stock ";
         
         $conexion = connect::con();
@@ -12,6 +30,7 @@ class DAOShop{
         connect::close($conexion);
         return $res;
     }
+    
     
     function select_data($cod_producto){
         $sql = "SELECT * FROM stock WHERE cod_producto='$cod_producto'";
@@ -62,6 +81,15 @@ class DAOShop{
     
     function select_distinct_categoria(){
         $sql = "SELECT DISTINCT categoria FROM stock";
+        
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql);
+        connect::close($conexion);
+        return $res;
+    }
+
+    function count_products(){
+        $sql = "SELECT COUNT(*) FROM stock ";
         
         $conexion = connect::con();
         $res = mysqli_query($conexion, $sql);

@@ -232,7 +232,7 @@ h5#exampleModalLabel{
 }
 /*--//model--*/
 /*-- banner --*/ 
-.one-img{  background: url(../images/musicban.png)no-repeat center;}
+.one-img{  background: url(../images/banac.jpg)no-repeat center;}
 .two-img{  background: url(../images/musica1.jpg)no-repeat center;}
 .three-img{  background: url(../images/musica1.jpg)no-repeat center;} 
 .slider-img{  background-size: cover;
@@ -244,6 +244,7 @@ overflow: hidden;
 width: 100%;
 padding: 0;
 margin: 0;
+
 }
 .rslides li {
 -webkit-backface-visibility: hidden;
@@ -499,7 +500,7 @@ border: 4px solid #d24055;
 /*-- inner-banner --*/ 
 .inner_page-banner {
 text-align: center;
-background: url(../images/musicban.png) no-repeat center;
+/* background: url(../images/musicban.png) no-repeat center; */
 background-size: cover;
 -webkit-background-size: cover;
 -moz-background-size: cover;

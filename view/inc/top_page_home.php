@@ -11,7 +11,9 @@
         
 
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-      
+
+      <!-- Scroll -->
+   <!--    <script type="text/javascript" src="view/inc/scroll/jquery-1.11.1.min.js"></script> -->
            <!-- Carrousel -->
      <link rel="stylesheet" href="view/inc/OwlCarousel/dist/assets/owl.carousel.css">
 <link rel="stylesheet" href="view/inc/OwlCarousel/dist/assets/owl.theme.default.min.css">

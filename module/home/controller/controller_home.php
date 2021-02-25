@@ -49,11 +49,7 @@ switch ($_GET['op']) {
 			}
 			break;
 			
-			
-		default:
-
-			include("view/inc/error404.php");
-			break;
+		
 
 		case 'morevisited';
 
@@ -75,4 +71,31 @@ switch ($_GET['op']) {
 				echo json_encode($dinfo);
 			}
 			break;
+
+			case 'scroll_data';
+
+            try{
+				$daohome = new DAOHome();
+				$rlt = $daohome->select_all_data($_GET['limit']);
+			} catch(Exception $e){
+				echo json_encode("error");
+			}
+
+			if(!$rlt){
+				echo json_encode("error");
+			}
+			else{
+				$dinfo = array();
+				foreach ($rlt as $row) {
+					array_push($dinfo, $row);
+				}
+				echo json_encode($dinfo);
+			}
+			break;
+
+				
+		default:
+
+		include("view/inc/error404.php");
+		break;
 	}

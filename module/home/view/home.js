@@ -3,28 +3,7 @@
 
   function carousel_owl(){
 
-    $.ajax({
 
-      type: 'GET', 
-      url: 'module/home/controller/controller_home.php?op=slider',
-      async:false, 
-      dataType: 'json',
-    
-    })
-    
-    .done(function( data2) {
-    
-      console.log(data2);
-    
-    
-      var element = "";
-      for (let index = 0; index < data2.length; index++) {
-    
-        element = element +'<div class="col-lg-4 col-md-6 col-sm-6 text-center banner-agile-flowers">  <img  src="'+data2[index].ruta+'" class="img-thumbnail" alt="">  <div class="banner-right-icon">  <button id="salto_shop" class="'+data2[index].categoria+'">'+data2[index].categoria+'</button> </div>   </div>';
-    
-      }
-      $('#categories').html(element);
-    })
 
      
     $.ajax({ 
@@ -106,7 +85,7 @@
     $(document).on('click','#salto_shop',function () {
 
       var id = this.getAttribute('class');;
-      console.log(id + "yeee"); 
+      console.log(id + "estamos"); 
       $.ajax({
       
         type: "GET",
@@ -119,7 +98,7 @@
       
        });
 
-
+/* Salto al shop */
 
     $(document).on('click','#salto_shop',function () {
 
@@ -136,11 +115,70 @@
       
        });
 
+
    
     
+    function more_groups(){
+
+     var  limit = 3;
+   
+      $.ajax({
+
+        type: "GET",
+        dataType: "json",
+        url: "module/home/controller/controller_home.php?op=scroll_data&limit=" + limit,
+      
+      })
+      
+      .done(function( data2) {
+      
+        console.log(data2);
+      
+      
+        var element = "";
+        for (let index = 0; index < data2.length; index++) {
+      
+          element = element +'<div class="col-lg-4 col-md-6 col-sm-6 text-center banner-agile-flowers">  <img  src="'+data2[index].img_grupo+'" class="img-thumbnail" alt="">  <div class="banner-right-icon">  <button id="salto_shop" class="'+data2[index].nombre_grupo+'">'+data2[index].nombre_grupo+'</button> </div>   </div>';
+      
+        }
+        $('#grupos_scroll').html(element);
+      })
+
+      $(document).on('click','#loadmore',function () {
+
+
+     limit = limit + 3;
+        
+     $.ajax({
+
+      type: "GET",
+      dataType: "json",
+      url: "module/home/controller/controller_home.php?op=scroll_data&limit=" + limit,
     
+    })
+    
+    .done(function( data2) {
+    
+      console.log(data2);
+    
+    
+      var element = "";
+      for (let index = 0; index < data2.length; index++) {
+    
+        element = element +'<div class="col-lg-4 col-md-6 col-sm-6 text-center banner-agile-flowers">  <img  src="'+data2[index].img_grupo+'" class="img-thumbnail" alt="">  <div class="banner-right-icon">  <button id="salto_shop" class="'+data2[index].nombre_grupo+'">'+data2[index].nombre_grupo+'</button> </div>   </div>';
+    
+      }
+      $('#grupos_scroll').html(element);
+    })
+        
+         });
+     
+    }
     
 $(document).ready(function () {   
   carousel_owl();
   categories();
+ /*  scroll_grupos(); */
+ more_groups();
+
     });
