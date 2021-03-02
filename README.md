@@ -5,7 +5,8 @@
 Aplicacion destinada a la venta online.
 
 # Video de la APP en funcionamiento
-https://user-images.githubusercontent.com/62066419/109708767-1efddb80-7b9c-11eb-828d-95cddb2a37e5.mp4
+![ViniloShop - Google Chrome 2021-03-02 20-58-35](https://user-images.githubusercontent.com/62066419/109709467-d0047600-7b9c-11eb-9583-088748e73c82.gif)
+
 
 
 # INDICE 
