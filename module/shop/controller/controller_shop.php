@@ -255,7 +255,29 @@
 
                                 try {
                                     $daoshop = new DAOShop();
-                                    $rlt = $daoshop->select_catego_auto($_GET['val'],$_GET['catego']);
+                                    $rlt = $daoshop->select_catego_auto($_GET['catego'],$_GET['val']);
+                                } catch (Exception $e) {
+                                    echo json_encode("error");
+                                }
+                                
+                                if (!$rlt) {
+                                    echo json_encode("error");
+                                }else{
+                                    $prod = array();
+                                    foreach ($rlt as $value) {
+                                        array_push($prod, $value);
+                                    }
+                                    echo json_encode($prod);
+                                    exit();
+                                }
+            
+                            break;
+
+                            case 'op_buscar_catego_estilo':
+
+                                try {
+                                    $daoshop = new DAOShop();
+                                    $rlt = $daoshop->select_cat_est($_GET['catego'],$_GET['estilo']);
                                 } catch (Exception $e) {
                                     echo json_encode("error");
                                 }

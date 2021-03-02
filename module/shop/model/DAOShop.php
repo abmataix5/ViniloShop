@@ -106,7 +106,16 @@ class DAOShop{
         return $res;
     }
 
-    function select_catego_auto($val,$catego,$estilo){
+    function select_cat_est($catego,$estilo){
+        $sql = "SELECT * FROM stock WHERE categoria='$catego' AND estilo_musical='$estilo'";
+        
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql);
+        connect::close($conexion);
+        return $res;
+    }
+
+    function select_catego_auto($catego,$val){
         $sql = "SELECT * FROM stock WHERE categoria='$catego' AND nombre_grupo LIKE '".$val. "%'";
         
         $conexion = connect::con();

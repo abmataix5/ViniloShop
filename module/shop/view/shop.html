@@ -20,36 +20,17 @@
 
             <div class="row">
                <div class="side-bar col-lg-3">
-                  <div class="search-hotel">
-                     <h3 class="agileits-sear-head">Busca aqui tu producto</h3>
-                     <form action="#" method="post">
-                        <input type="search" placeholder="Product name..." name="search" required="">
-                        <input type="submit" value=" ">
-                     </form>
-                  </div>
-							<!-- price range -->
+            
+							<!-- maps -->
                      <img class="mapdetails" src="view/images/maps.png">
-                   
-							<div class="range">
-                        <form>
-								<h3 class="agileits-sear-head">Rango de precio</h3>
-								<select>
-                             <option id="barato">0$-50$</option> 
-                             <option id ="medio">50$-100$</option> 
-                             <option id="top">Más de 100$</option> 
+                     				
 
-
-                        </select>
-                        <a id="check_precio">Enviar</a>
-                     </form>
-							</div>
-
-							<!-- //price range -->
-
+							<!-- //maps -->
+                  
 
                   <!--Filtros, por grupo -->
                   <div class="left-side">
-                     <h3 class="agileits-sear-head">Grupo</h3>
+                     <h3 class="agileits-sear-head">Grupos/Artistas disponibles</h3>
                      <ul id ="filtros" >
                 
                      </ul>
@@ -59,6 +40,27 @@
 
                   <!--Filtros, por estilo musical -->
                <form name="f1" class="ff"> 
+
+
+                  <div class="left-side">
+                     <h3 class="agileits-sear-head">Rango de precio</h3>
+                     <ul id ="filtros_precio" >
+                        <li>
+                           <input type="checkbox" class="checked" id ="check_barato">
+                           <span  class="span" >0-50$</span>
+                        </li>
+                        <li>
+                           <input type="checkbox" class="checked" id ="check_medio">
+                           <span  class="span" >50-100$</span>
+                        </li>
+                        <li>
+                           <input type="checkbox" class="checked" id ="check_caro">
+                           <span  class="span" >+ de 100$</span>
+                        </li>
+                     </ul>
+                  </div>
+
+
                   <div class="left-side">
                      <h3 class="agileits-sear-head">Estilo musical</h3>
                      <ul id="filtros_estilo">
@@ -131,7 +133,7 @@
 
                      <!-- Api books realcionados -->
                      <div id="api_div">
-                     <h1 id="titulo_api">Productos que podrian interesarte</h1>
+                     <h1 id="titulo_api">Otros productos que podrian interesarte:</h1>
                      <!-- <div id="load_Api"></div> -->
                   </div>
                  </div>

@@ -142,6 +142,14 @@
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
   }
+  #salto_more{
+
+    cursor:pointer;
+    background-color: #000000;
+    color: #feffff;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+
+  }
 
   #opauto{
     cursor:pointer;
@@ -227,7 +235,7 @@
   }
 
   .owl-item{
-    margin-top: 170px;
+    margin-top: 210px;
   }
 
   /* pagination */
@@ -242,7 +250,8 @@
     cursor:pointer;
     border-style:double;
     margin-inline: auto;
-    justify-content: center
+    justify-content: center;
+    vertical-align: middle;
   }
 
   .imgapi{

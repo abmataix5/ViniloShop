@@ -581,6 +581,7 @@ h3.agileits-sear-head {
     margin-bottom: 20px;
     font-size: 1.1em;
     font-weight: 600;
+	border-top: solid;
 }
 .search-hotel {
 	padding: 15px 0;

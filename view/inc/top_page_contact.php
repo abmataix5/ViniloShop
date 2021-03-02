@@ -1,5 +1,5 @@
 <head>
-         <title>Toys Shop an Ecommerce Category Bootstrap Responsive Web Template | Home :: w3layouts</title>
+         <title>Viniloshop</title>
          <!--meta tags -->
          <meta charset="UTF-8">
          <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -30,5 +30,13 @@
          <!--//stylesheets-->
          <link href="//fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
          <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+
+         <s<script type="text/javascript" src="module/search/view/search.js"></script>
          
+         <script type="text/javascript"> 
+         function cambiarModo() { 
+           var cuerpoweb = document.body; 
+           cuerpoweb.classList.toggle("oscuro"); 
+         } 
+       </script>
       </head>

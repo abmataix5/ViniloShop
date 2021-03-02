@@ -171,27 +171,42 @@ function salto_categorias(){
            console.log(drop);
            console.log(val);
            console.log(catego);
+           console.log(estilo);
           
 
-           if (drop===null){
+           if ((drop===null)&&(drop===val)&&(catego===null)&&(estilo===null)){
                console.log("del menú");
                ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop&offset=" + offset);
 
            } if(drop!= null && drop.length > 1){
-            console.log("de categorias");
+
+                console.log("de categorias");
                 ajaxForSearch("module/shop/controller/controller_shop.php?op=op_categoria&categoria=" + drop);
-            }if((val!= null && val.length > 1)&&(catego!= null && catego.length > 1)&&(estilo != null && estilo.length > 1)){
-                console.log("de search");
+
+            }if((val!= null && val.length > 1)&&(catego!= null && catego.length > 1)&&(estilo != "false" )){
+
+                console.log("de search all campos");
                 ajaxForSearch("module/shop/controller/controller_shop.php?op=op_buscar&val=" + val + '&catego=' + catego + '&estilo=' + estilo);
-            }if(catego!= null && catego.length > 1){
-                console.log("de search fecha");
+
+            }if((catego!= null && catego.length > 1)&&(val== "")&&(estilo == "false")){
+
+                console.log("de search catego only");
                 ajaxForSearch("module/shop/controller/controller_shop.php?op=op_buscar_catego&catego=" + catego);
-            }if(val!= null && val.length > 1){
+
+            }if((val!= null && val.length > 1)&&(estilo === "false" )&&(catego===null)){
+
                 console.log("de search auto");
                 ajaxForSearch("module/shop/controller/controller_shop.php?op=op_buscar_auto&val=" + val);
-            }if((val!= null && val.length > 1)&&(catego!= null && catego.length > 1)){
-                console.log("de search catego y auto");
-                ajaxForSearch("module/shop/controller/controller_shop.php?op=op_catego_auto&val=" + val+ '&catego=' + catego);
+
+            }if((catego!= null)&&(estilo != "false" )&&(val == "" )){
+
+                ajaxForSearch("module/shop/controller/controller_shop.php?op=op_buscar_catego_estilo&catego="+ catego + '&estilo=' + estilo);
+
+            }if((val!= null && val.length > 1)&&(catego!= null)&&(estilo === "false" )){
+
+                console.log("de search auto+6catego");
+                      ajaxForSearch("module/shop/controller/controller_shop.php?op=op_catego_auto&catego="+ catego + '&val=' + val);
+
             }
 
 
@@ -212,7 +227,7 @@ function salto_categorias(){
 
   /* Funciónes que pinta los filtros de nombre de grupo, depende de BBDD */
 
-  function pintar_filtros_nomgrupo(){
+  function pintar_grupos_disponibles(){
 
     $.ajax({
 
@@ -232,8 +247,8 @@ function salto_categorias(){
       for (let index = 0; index < data_filtros.length; index++) {
     
         element = element +'<li>'+
-        '<input type="checkbox" class="check_grupo" id ="'+data_filtros[index].cod_grupo+'">'+
-        '<span class="span" >'+data_filtros[index].nombre_grupo+'</span>'+
+        '<li class="check_grupo" id ="'+data_filtros[index].cod_grupo+'">'+
+        '<span class="span" >-'+data_filtros[index].nombre_grupo+'</span>'+
          '</li>';
     
       }
@@ -248,7 +263,7 @@ function salto_categorias(){
 function filtros(){
 
   var checks = "";
-  var count1 = 0, count2 = 0,count3 = 0, count4 = 0,count5 = 0, count6 = 0, count7 = 0, count8 = 0, count9 = 0;
+  var count1 = 0, count2 = 0,count3 = 0, count4 = 0,count5 = 0, count6 = 0, count7 = 0, count8 = 0, count9 = 0,count10=0,count11=0,count12=0;
   
 
   //////////////////////////////////////////// POR ESTILO MUSICAL /////////////////////////////////////////////////////////////////////////
@@ -260,11 +275,11 @@ function filtros(){
             count1=count1+1;
 
         }else if(count1 == 1){
-            checks = checks.replace("OR estilo_musical = 'Rock'", "");
+            checks = checks.replace(" AND estilo_musical = 'Rock'", "");
             checks = checks.replace("estilo_musical = 'Rock'", "");
             count1=0;
             }else{
-                checks = checks + "OR estilo_musical = 'Rock'";
+                checks = checks + " AND estilo_musical = 'Rock'";
                 count1=count1+1;
         }
     });
@@ -276,11 +291,11 @@ function filtros(){
             count2=count2+1;
 
         }else if(count2 == 1){
-            checks = checks.replace("OR estilo_musical = 'Pop'", "");
+            checks = checks.replace("  AND estilo_musical = 'Pop'", "");
             checks = checks.replace("estilo_musical = 'Pop'", "");
             count2=0;
             }else{
-                checks = checks + "OR estilo_musical = 'Pop'";
+                checks = checks + " AND estilo_musical = 'Pop'";
                 count2=count2+1;
         }
     });
@@ -291,11 +306,11 @@ function filtros(){
             count3=count3+1;
 
         }else if(count3 == 1){
-            checks = checks.replace("OR estilo_musical = 'Electronica'", "");
+            checks = checks.replace(" AND estilo_musical = 'Electronica'", "");
             checks = checks.replace("estilo_musical = 'Electronica'", "");
             count3=0;
             }else{
-                checks = checks + "OR estilo_musical = 'Electronica'";
+                checks = checks + " AND estilo_musical = 'Electronica'";
                 count3=count3+1;
         }
     });
@@ -307,11 +322,11 @@ function filtros(){
             count4=count4+1;
 
         }else if(count4 == 1){
-            checks = checks.replace("OR estilo_musical = 'Clasica'", "");
+            checks = checks.replace(" AND estilo_musical = 'Clasica'", "");
             checks = checks.replace("estilo_musical = 'Clasica'", "");
             count4=0;
             }else{
-                checks = checks + "OR estilo_musical = 'Clasica'";
+                checks = checks + " AND estilo_musical = 'Clasica'";
                 count4=count4+1;
         }
     });
@@ -322,11 +337,11 @@ function filtros(){
             count5=count5+1;
 
         }else if(count5 == 1){
-            checks = checks.replace("OR estilo_musical = 'Rap'", "");
+            checks = checks.replace(" AND estilo_musical = 'Rap'", "");
             checks = checks.replace("estilo_musical = 'Rap'", "");
             count5=0;
             }else{
-                checks = checks + "OR estilo_musical = 'Rap'";
+                checks = checks + " AND estilo_musical = 'Rap'";
                 count5=count5+1;
         }
     });
@@ -341,11 +356,11 @@ function filtros(){
         count6=count6+1;
 
     }else if(count6 == 1){
-        checks = checks.replace("AND categoria = 'Disco'", "");
+        checks = checks.replace(" AND categoria = 'Disco'", "");
         checks = checks.replace("categoria = 'Disco'", "");
         count6=0;
         }else{
-            checks = checks + "AND categoria = 'Disco'";
+            checks = checks + " AND categoria = 'Disco'";
             count6=count6+1;
     }
 });
@@ -356,11 +371,11 @@ $('#check_vinilo').click(function () {
         count7=count7+1;
 
     }else if(count7 == 1){
-        checks = checks.replace("AND categoria = 'Vinilo'", "");
+        checks = checks.replace(" AND categoria = 'Vinilo'", "");
         checks = checks.replace("categoria = 'Vinilo'", "");
         count7=0;
         }else{
-            checks = checks + "AND categoria = 'Vinilo'";
+            checks = checks + " AND categoria = 'Vinilo'";
             count7=count7+1;
     }
 });
@@ -374,11 +389,11 @@ $('#check_vinilo').click(function () {
         count8=count8+1;
 
     }else if(count8 == 1){
-        checks = checks.replace("AND categoria = 'Camiseta'", "");
+        checks = checks.replace(" AND categoria = 'Camiseta'", "");
         checks = checks.replace("categoria = 'Camiseta'", "");
         count8=0;
         }else{
-            checks = checks + "AND categoria = 'Camiseta'";
+            checks = checks + " AND categoria = 'Camiseta'";
             count8=count8+1;
     }
 });
@@ -390,16 +405,64 @@ $('#check_poster').click(function () {
         count9=count9+1;
 
     }else if(count9 == 1){
-        checks = checks.replace("AND categoria = 'Poster'", "");
+        checks = checks.replace(" AND categoria = 'Poster'", "");
         checks = checks.replace("categoria = 'Poster'", "");
         count9=0;
         }else{
-            checks = checks + "AND categoria = 'Poster'";
+            checks = checks + " AND categoria = 'Poster'";
             count9=count9+1;
     }
 });
 
+/* Check precio */
 
+$('#check_barato').click(function () {
+    console.log("Debug Check2");
+    if(checks === ""){
+        checks = "precio < 50";
+        count10=count10+1;
+
+    }else if(count10 == 1){
+        checks = checks.replace(" AND precio < 50", "");
+        checks = checks.replace("precio < 50", "");
+        count10=0;
+        }else{
+            checks = checks + " AND precio < 50";
+            count10=count10+1;
+    }
+});
+
+$('#check_medio').click(function () {
+    console.log("Debug Check2");
+    if(checks === ""){
+        checks = "precio BETWEEN 50 AND 100";
+        count11=count11+1;
+
+    }else if(count11 == 1){
+        checks = checks.replace(" AND precio BETWEEN 50 AND 100", "");
+        checks = checks.replace("precio BETWEEN 50 AND 100", "");
+        count11=0;
+        }else{
+            checks = checks + " AND precio BETWEEN 50 AND 100";
+            count11=count11+1;
+    }
+});
+
+$('#check_caro').click(function () {
+    console.log("Debug Check2");
+    if(checks === ""){
+        checks = "precio > 100";
+        count12=count12+1;
+
+    }else if(count12 == 1){
+        checks = checks.replace(" AND precio > 100", "");
+        checks = checks.replace("precio > 100", "");
+        count12=0;
+        }else{
+            checks = checks + " AND precio > 100";
+            count12=count12+1;
+    }
+});
 
 
 //////////////////////////////Boton para filtrar///////////////////////
@@ -409,7 +472,7 @@ $('#check_poster').click(function () {
   if(checks === ""){
       console.log("olaasas");
       $('#container_shop').empty();
-      ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop&offset=");
+      ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop&offset="+ offset);
 
   }else{
       $('#container_shop').empty();
@@ -421,9 +484,12 @@ $('#check_poster').click(function () {
 
 
 
-$('#barato').click(function () {
-    console.log("Debug PRECIO");
-
+$('#check_precio').click(function () {
+    console.log("ola");
+    var drop = $("#barato").val();
+    var drop2=$("#medio").val();
+    var auto=$("#top").val();
+console.log(drop);
 });
 
 
@@ -581,7 +647,7 @@ function api_books(){
             for (i = 0; i < DatosJson.items.length; i++) {
                 var ElementDiv = document.createElement('div');
                 ElementDiv.innerHTML ='<div class="imgapi">  <img  src="'+ data['items'][i]['volumeInfo']['imageLinks']['thumbnail'] +'" class="img-thumbnail" alt=""> '+
-                ' <div class="banner-right-icon">  <button  id="salto_shop" class="api">'+ DatosJson.items[i].volumeInfo.title +'</button> </div>   </div>';
+                ' <div class="banner-right-icon">  <a href="https://www.casadellibro.com/?campaignid=847763403&adgroupid=45890883271&feeditemid=&targetid=kwd-339552290086&matchtype=e&network=g&device=c&devicemodel=&ifmobile%3A%5Bmobile%5D=&ifnotmobile%3A%5Bnotmobile%5D=%5Bnotmobile%5D&ifsearch%3A%5Bsearch%5D=%5Bsearch%5D&ifcontent%3A%5Bdisplay%5D=&creative=418682255226&keyword=casa+del+libro.&placement=&target=&adposition=&gclid=Cj0KCQiA4feBBhC9ARIsABp_nbVTJdvWl7kwwvk1ZWgv5KtYGRmDFkQ_jm3eFOofdWmXArVAn8SMmQYaAgp1EALw_wcB&q=rollingstones" id="salto_shop" class="api">'+ DatosJson.items[i].volumeInfo.title +'</a> </div>   </div>';
                
                
                 document.getElementById("load_Api").appendChild(ElementDiv); 
@@ -594,6 +660,7 @@ function api_books(){
 
 
 
+
 /* Document ready con funciones anteriores */
 
 
@@ -602,7 +669,7 @@ $(document).ready(function(){
    
    salto_categorias();
    filtros();
-   pintar_filtros_nomgrupo();
+   pintar_grupos_disponibles();
    map_shop(); 
    pagination(); 
    api_books();

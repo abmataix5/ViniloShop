@@ -49,7 +49,8 @@
 
 <!-- Search -->
 <script src="module/search/view/search.js"></script>
-      
+<script type="text/javascript" src="view/inc/translate.js"></script>
+
 <script type="text/javascript"> 
          function cambiarModo() { 
            var cuerpoweb = document.body; 

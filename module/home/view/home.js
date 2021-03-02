@@ -17,7 +17,7 @@
             console.log(data);
               $('#caorusel').append(
               
-                          '<img  src="'+data[i].ruta+'">'
+                          '<img id="carousel_shop"  src="'+data[i].ruta+'">'
                           
                     
               )
@@ -100,6 +100,31 @@
 
 /* Salto al shop */
 
+    $(document).on('click','#carousel_shop',function () {
+
+
+      
+      setTimeout('window.location.href = "index.php?page=controller_shop&op=list"',1000);
+      
+        
+      
+       });
+
+       /* Salto al shop */
+
+    $(document).on('click','#salto_more',function () {
+
+
+      
+      setTimeout('window.location.href = "index.php?page=controller_shop&op=list"',1000);
+      
+        
+      
+       });
+
+       
+/* Salto al shop */
+
     $(document).on('click','#salto_shop',function () {
 
 
@@ -114,7 +139,6 @@
         
       
        });
-
 
    
     
@@ -138,7 +162,7 @@
         var element = "";
         for (let index = 0; index < data2.length; index++) {
       
-          element = element +'<div class="col-lg-4 col-md-6 col-sm-6 text-center banner-agile-flowers">  <img  src="'+data2[index].img_grupo+'" class="img-thumbnail" alt="">  <div class="banner-right-icon">  <button id="salto_shop" class="'+data2[index].nombre_grupo+'">'+data2[index].nombre_grupo+'</button> </div>   </div>';
+          element = element +'<div class="col-lg-4 col-md-6 col-sm-6 text-center banner-agile-flowers">  <img  src="'+data2[index].img_grupo+'" class="img-thumbnail" alt="">  <div class="banner-right-icon">  <button id="salto_more" class="'+data2[index].nombre_grupo+'">'+data2[index].nombre_grupo+'</button> </div>   </div>';
       
         }
         $('#grupos_scroll').html(element);
