@@ -10,6 +10,8 @@ Aplicacion destinada a la venta online.
 *  *Tecnologias* 
 * *Modulos* 
 *  *Funcionalidades*
+*   *Próximas actualizaciones* 
+*  *Autores*
 
 
 ### Construido con 🛠️
