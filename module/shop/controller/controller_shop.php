@@ -229,7 +229,93 @@
                             break;
 
  
+                            case 'op_buscar':
 
+                                try {
+                                    $daoshop = new DAOShop();
+                                    $rlt = $daoshop->select_all_search($_GET['val'],$_GET['catego'],$_GET['estilo']);
+                                } catch (Exception $e) {
+                                    echo json_encode("error");
+                                }
+                                
+                                if (!$rlt) {
+                                    echo json_encode("error");
+                                }else{
+                                    $prod = array();
+                                    foreach ($rlt as $value) {
+                                        array_push($prod, $value);
+                                    }
+                                    echo json_encode($prod);
+                                    exit();
+                                }
+            
+                            break;
+
+                            case 'op_catego_auto':
+
+                                try {
+                                    $daoshop = new DAOShop();
+                                    $rlt = $daoshop->select_catego_auto($_GET['val'],$_GET['catego']);
+                                } catch (Exception $e) {
+                                    echo json_encode("error");
+                                }
+                                
+                                if (!$rlt) {
+                                    echo json_encode("error");
+                                }else{
+                                    $prod = array();
+                                    foreach ($rlt as $value) {
+                                        array_push($prod, $value);
+                                    }
+                                    echo json_encode($prod);
+                                    exit();
+                                }
+            
+                            break;
+            
+                            case 'op_buscar_catego':
+
+                                try {
+                                    $daoshop = new DAOShop();
+                                    $rlt = $daoshop->select_catego($_GET['catego']);
+                                } catch (Exception $e) {
+                                    echo json_encode("error");
+                                }
+                                
+                                if (!$rlt) {
+                                    echo json_encode("error");
+                                }else{
+                                    $prod = array();
+                                    foreach ($rlt as $value) {
+                                        array_push($prod, $value);
+                                    }
+                                    echo json_encode($prod);
+                                    exit();
+                                }
+            
+                            break;
+            
+                            case 'op_buscar_auto':
+
+                                try {
+                                    $daoshop = new DAOShop();
+                                    $rlt = $daoshop->select_auto($_GET['val']);
+                                } catch (Exception $e) {
+                                    echo json_encode("error");
+                                }
+                                
+                                if (!$rlt) {
+                                    echo json_encode("error");
+                                }else{
+                                    $prod = array();
+                                    foreach ($rlt as $value) {
+                                        array_push($prod, $value);
+                                    }
+                                    echo json_encode($prod);
+                                    exit();
+                                }
+            
+                            break;
       
 
 

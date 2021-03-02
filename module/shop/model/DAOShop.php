@@ -97,6 +97,42 @@ class DAOShop{
         return $res;
     }
 
+    function select_all_search($val,$catego,$estilo){
+        $sql = "SELECT * FROM stock WHERE categoria='$catego' AND estilo_musical='$estilo' AND nombre_grupo LIKE '".$val. "%'";
+        
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql);
+        connect::close($conexion);
+        return $res;
+    }
+
+    function select_catego_auto($val,$catego,$estilo){
+        $sql = "SELECT * FROM stock WHERE categoria='$catego' AND nombre_grupo LIKE '".$val. "%'";
+        
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql);
+        connect::close($conexion);
+        return $res;
+    }
+
+    function select_catego($catego){
+        $sql = "SELECT * FROM stock WHERE categoria='$catego'";
+        
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql);
+        connect::close($conexion);
+        return $res;
+    }
+
+    function select_auto($val){
+        $sql = "SELECT * FROM stock WHERE  nombre_grupo LIKE '%".$val. "%'";
+        
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql);
+        connect::close($conexion);
+        return $res;
+    }
+
     
 
 

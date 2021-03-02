@@ -41,8 +41,8 @@
 
 
       <script type="text/javascript" src="view/inc/translate.js"></script>
-<script type="text/javascript" src="module/home/view/home.js"></script>
-
+      <script type="text/javascript" src="module/home/view/home.js"></script>
+       <script src="module/search/view/search.js"></script>
     
 <script type="text/javascript"> 
          function cambiarModo() { 

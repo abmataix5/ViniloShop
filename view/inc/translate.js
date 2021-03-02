@@ -23,13 +23,13 @@
     cambiarIdioma();
 
 
-    $(".boton_esp").on("click", function(){
+    $(".españa").on("click", function(){
       cambiarIdioma('es');
     });
 
 
 
-    $(".boton_en").on("click", function(){
+    $(".engl").on("click", function(){
       cambiarIdioma('en');
     });
 });

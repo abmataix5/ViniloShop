@@ -136,11 +136,17 @@
 
   #salto_shop{
 
-cursor:pointer;
-background-color: #000000;
-color: #feffff;
-font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    cursor:pointer;
+    background-color: #000000;
+    color: #feffff;
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
+  }
+
+  #opauto{
+    cursor:pointer;
+    background-color: #ffffff;
+    color: #000000;
   }
 
 
@@ -247,7 +253,7 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
   .btn{
     text-decoration: none;
-    padding: 10px;
+    padding: 5px;
     font-weight: 600;
     font-size: 20px;
     color: #ffffff;

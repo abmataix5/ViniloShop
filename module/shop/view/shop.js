@@ -44,11 +44,11 @@
            var element ="";
            for(var i=0; i < data_shop.length; i++){
    
-            element = element +' <img class="imga1" src="'+data_shop[i].ruta+'">';
+            element = element +' <img class="imga1" id="'+data_shop[i].cod_producto+'" src="'+data_shop[i].ruta+'">';
          
             
            }  
-           $('#details').html(element);  
+           $('#container_shop').html(element);  
         }
 
         /* Details */
@@ -165,9 +165,13 @@ function salto_categorias(){
        if (document.getElementById('container_shop')) {
        console.log("dennnnnnnnnnntro");
            var drop= JSON.parse(localStorage.getItem('categoria'));
-
+           var val = localStorage.getItem('val');
+           var catego = localStorage.getItem('search_catego');
+           var estilo = localStorage.getItem('search_estilo');
            console.log(drop);
-
+           console.log(val);
+           console.log(catego);
+          
 
            if (drop===null){
                console.log("del menú");
@@ -176,13 +180,26 @@ function salto_categorias(){
            } if(drop!= null && drop.length > 1){
             console.log("de categorias");
                 ajaxForSearch("module/shop/controller/controller_shop.php?op=op_categoria&categoria=" + drop);
+            }if((val!= null && val.length > 1)&&(catego!= null && catego.length > 1)&&(estilo != null && estilo.length > 1)){
+                console.log("de search");
+                ajaxForSearch("module/shop/controller/controller_shop.php?op=op_buscar&val=" + val + '&catego=' + catego + '&estilo=' + estilo);
+            }if(catego!= null && catego.length > 1){
+                console.log("de search fecha");
+                ajaxForSearch("module/shop/controller/controller_shop.php?op=op_buscar_catego&catego=" + catego);
+            }if(val!= null && val.length > 1){
+                console.log("de search auto");
+                ajaxForSearch("module/shop/controller/controller_shop.php?op=op_buscar_auto&val=" + val);
+            }if((val!= null && val.length > 1)&&(catego!= null && catego.length > 1)){
+                console.log("de search catego y auto");
+                ajaxForSearch("module/shop/controller/controller_shop.php?op=op_catego_auto&val=" + val+ '&catego=' + catego);
             }
 
 
        }
-        localStorage.removeItem("val");
-       localStorage.removeItem("categoria");
-
+        localStorage.removeItem("categoria"); 
+       localStorage.removeItem("val");
+       localStorage.removeItem("search_catego");
+       localStorage.removeItem("search_estilo");
  
 }
 
@@ -586,7 +603,6 @@ $(document).ready(function(){
    salto_categorias();
    filtros();
    pintar_filtros_nomgrupo();
-   api_maps();
    map_shop(); 
    pagination(); 
    api_books();

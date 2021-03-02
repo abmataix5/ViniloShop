@@ -39,7 +39,9 @@
 
     <!-- Js controllers -->
     <script type="text/javascript" src="module/shop/view/shop.js"></script>
+    <script src="module/search/view/search.js"></script>
 
+    
     <script type="text/javascript"> 
          function cambiarModo() { 
            var cuerpoweb = document.body; 

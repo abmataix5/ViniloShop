@@ -15,6 +15,8 @@ else if ((isset($_GET['page'])) && ($_GET['page']==="controller_shop") ){
 }
 else if ((isset($_GET['page'])) && ($_GET['page']==="controller_order") ){
 	include("view/inc/top_page_order.php");
+}else if ((isset($_GET['page'])) && ($_GET['page']==="controller_contact") ){
+	include("view/inc/top_page_contact.php");
 }
 
 else{

@@ -46,6 +46,9 @@
 <script type="text/javascript" src="view/js/jqwidgets/jqwidgets/jqxlistbox.js"></script>
 <script type="text/javascript" src="view/js/jqwidgets/jqwidgets/jqxdropdownlist.js"></script>
 <script type="text/javascript" src="view/js/jqwidgets/scripts/demos.js"></script> 
+
+<!-- Search -->
+<script src="module/search/view/search.js"></script>
       
 <script type="text/javascript"> 
          function cambiarModo() { 

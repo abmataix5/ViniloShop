@@ -8,16 +8,38 @@
                <div class="hedder-up row">
                   <div class="col-lg-3 col-md-3 logo-head">
                      <h1><a class="navbar-brand" href="index.php?page=controller_home&op=list".html">ViniloShop</a></h1>
+                
                   </div>
+                  						
                   <div class="col-lg-5 col-md-6 search-right">
-                     <form class="form-inline my-lg-0">
-                        <input class="form-control mr-sm-2" type="search" placeholder="Search">
-                        <button class="btn" type="submit">Search</button>
-                     </form>
+
+                        <form class="search">
+                        <div class="autocomplete">
+                           <form class="form-inline my-lg-0">
+                           
+                              <input id="autocom" class="form-control mr-sm-2" type="search" placeholder="Busca tu producto">
+                              <div id="opauto"></div>
+                            
+                           </form>
+                        </div> 
+                           <select id="search_catego">
+                              <option value="0">Categoria?</option>
+                           </select>
+                           <select id="search_estilo">
+                              <option value="0">Estilo</option>
+                           </select>
+                           <a id="searchlist" class="btn" type="submit">Search</a>
+                        </form>
                   </div>
                   <div class="col-lg-4 col-md-3 right-side-cart">
                      <div class="cart-icons">
                         <ul>
+                        <li>
+                              <a class = "españa">........</a>
+                           </li>
+                           <li>
+                           <a class = "engl">.........</a>
+                           </li>
                            <li>
                               <span class="far fa-heart"></span>
                            </li>
@@ -33,14 +55,8 @@
                                  </button>
                               </form>
                            </li>
-                           <li>
-                              <a class = "boton_esp">Spanish</a>
-                           </li>
-                           <li>
-                           <a class = "boton_en">English</a>
-                           </li>
-                           <li> <a type="button" class="btn btn-dark" onclick="cambiarModo()">Oscuro / Claro</a></li>
-                           
+                    
+                           <li> <a type="button" class="btn btn-dark" onclick="cambiarModo()">Modo oscuro</a></li>
                         </ul>
                      </div>
                   </div>
@@ -64,9 +80,7 @@
                      <li class="nav-item">
                         <a href="index.php?page=controller_shop&op=list" class="nav-link" data-tr="Tienda">Shop</a>
                      </li>
-                     <li class="nav-item">
-                        <a href="shop.html" class="nav-link" data-tr="Mapas">Maps</a>
-                     </li>
+                   
                    
                      <li class="nav-item">
                         <a  href="index.php?page=controller_contact&op=list" class="nav-link" data-tr="Contacto">Contact</a>
