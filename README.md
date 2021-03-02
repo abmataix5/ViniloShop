@@ -35,7 +35,7 @@ Aplicacion destinada a la venta online.
 
     #### Tecnologias secundarias🛠️
     *  *Jquery DataTable* - [DataTable](https://datatables.net/)
-    *  * *Frontend* - [Bootstrap](https://getbootstrap.com/)
+    *   *Frontend* - [Bootstrap](https://getbootstrap.com/)
 
 
 ### Modulos de la app 🔩
