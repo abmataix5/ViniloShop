@@ -4,12 +4,12 @@
 
 Aplicacion destinada a la venta online.
 
-# Video de la APP en funcionamiento
+# Video de la APP en funcionamiento ⌨️
 ![ViniloShop - Google Chrome 2021-03-02 20-58-35](https://user-images.githubusercontent.com/62066419/109709467-d0047600-7b9c-11eb-9583-088748e73c82.gif)
 
 
 
-# INDICE 
+# INDICE 📌
 
 
 *  *Tecnologias* 
@@ -26,8 +26,16 @@ Aplicacion destinada a la venta online.
 * *Frontend* - [Javascript](https://es.wikipedia.org/wiki/JavaScript)
 *   *Frontend* - [JQuery](https://jquery.com/)
 * *Backend* - [MySQL](https://www.mysql.com/)
-* *Frontend* - [Bootstrap](https://getbootstrap.com/)
 
+
+    #### Apis utilizadas🛠️
+
+    * *Api Google Maps*  - [GoogleMapsApi](https://developers.google.com/maps/documentation?hl=es)
+    * * GoogleBooks Api* - [GoogleBooks](https://developers.google.com/books)
+
+    #### Tecnologias secundarias🛠️
+    *  *Jquery DataTable* - [DataTable](https://datatables.net/)
+    *  * *Frontend* - [Bootstrap](https://getbootstrap.com/)
 
 
 ### Modulos de la app 🔩
