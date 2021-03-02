@@ -4,19 +4,23 @@
 
 Aplicacion destinada a la venta online.
 
-# Video de la APP en funcionamiento ⌨️
-![ViniloShop - Google Chrome 2021-03-02 20-58-35](https://user-images.githubusercontent.com/62066419/109709467-d0047600-7b9c-11eb-9583-088748e73c82.gif)
+
 
 
 
 # INDICE 📌
 
 
+*  *Video APP en funcionamiento* 
 *  *Tecnologias* 
 * *Modulos* 
 *  *Funcionalidades*
 *   *Próximas actualizaciones* 
 *  *Autores*
+
+
+### Video de la APP en funcionamiento ⌨️
+![ViniloShop - Google Chrome 2021-03-02 20-58-35](https://user-images.githubusercontent.com/62066419/109709467-d0047600-7b9c-11eb-9583-088748e73c82.gif)
 
 
 ### Construido con 🛠️
