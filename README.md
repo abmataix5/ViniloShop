@@ -4,6 +4,10 @@
 
 Aplicacion destinada a la venta online.
 
+# Video de la APP en funcionamiento
+https://user-images.githubusercontent.com/62066419/109708767-1efddb80-7b9c-11eb-828d-95cddb2a37e5.mp4
+
+
 # INDICE 
 
 
