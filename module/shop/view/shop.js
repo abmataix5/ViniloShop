@@ -193,7 +193,7 @@ function salto_categorias(){
                 console.log("de search catego only");
                 ajaxForSearch("module/shop/controller/controller_shop.php?op=op_buscar_catego&catego=" + catego);
 
-            }if((val!= null && val.length > 1)&&(estilo === "false" )&&(catego===null)){
+            }if((val!= null && val.length > 1)&&(estilo === "0" )&&(catego==="0")){
 
                 console.log("de search auto");
                 ajaxForSearch("module/shop/controller/controller_shop.php?op=op_buscar_auto&val=" + val);
@@ -499,7 +499,7 @@ console.log(drop);
 
   function api_maps() {
 
-     if (document.getElementById('mapshop') != null) { 
+    if (document.getElementById('mapshop') != null) {  
         
       var script = document.createElement('script');
       script.src = "https://maps.googleapis.com/maps/api/js?key=" + "AIzaSyDGZQiAiNiB8a3IicipOMsvpb0tIMab2aM";
@@ -507,7 +507,7 @@ console.log(drop);
       script.defer;
       document.getElementsByTagName('script')[0].parentNode.appendChild(script);
       
-     } 
+    }   
   }
 
 
@@ -631,7 +631,7 @@ function api_books(){
 
     $('<div></div>').attr({'id': 'load_Api', }).appendTo('#api_div');
 
-    limit = 6;
+    limit = 5;
 
     $.ajax({
         type: 'GET',
