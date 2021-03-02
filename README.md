@@ -31,7 +31,7 @@ Aplicacion destinada a la venta online.
     #### Apis utilizadas🛠️
 
     * *Api Google Maps*  - [GoogleMapsApi](https://developers.google.com/maps/documentation?hl=es)
-    * * GoogleBooks Api* - [GoogleBooks](https://developers.google.com/books)
+    * *GoogleBooks Api* - [GoogleBooks](https://developers.google.com/books)
 
     #### Tecnologias secundarias🛠️
     *  *Jquery DataTable* - [DataTable](https://datatables.net/)
