@@ -20,7 +20,9 @@ Aplicacion destinada a la venta online.
 
 
 ### Video de la APP en funcionamiento ⌨️
-![ViniloShop - Google Chrome 2021-03-02 20-58-35](https://user-images.githubusercontent.com/62066419/109709467-d0047600-7b9c-11eb-9583-088748e73c82.gif)
+
+![ViniloShop - Google Chrome 2021-03-02 20-58-35 (2)](https://user-images.githubusercontent.com/62066419/109805866-413b3c00-7c24-11eb-84cd-e5a92278bbc5.gif)
+
 
 
 ### Construido con 🛠️
