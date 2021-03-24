@@ -1,0 +1,43 @@
+
+<body class="darkfos">
+<div class="container_login">
+
+    <form id="signup" name="formlogin" class="formlogin">
+
+        <div class="header">
+        
+            <h3>Inicia sesión en ViniloShop</h3>
+            
+           
+            
+        </div>
+        
+        <div class="sep"></div>
+
+        <div class="inputs">
+        
+            <p> <input type="text" name="username" placeholder="Nombre de usuario" autofocus /><span id="e_user" class="error">
+                <?php
+                    $e_user="";
+                    echo "$e_user";
+                ?>
+            </span></p>
+        
+            <p><input name="password" type="password" placeholder="Contraseña" /><span id="e_password" class="error">
+                <?php
+                    $e_password="";
+                    echo "$e_password";
+                ?>
+            </span></p>
+
+                <p class="submit"><input class="submit" type="button" name="commit" value="Inciar sesion" id="login_btn"></p>
+           
+            
+            
+        
+        </div>
+
+    </form>
+    <a id="submit" href="index.php?page=controller_login&op=register_list">Aun no tienes cuenta?</a>
+</div>
+​</body>

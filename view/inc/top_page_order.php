@@ -50,6 +50,8 @@
 <!-- Search -->
 <script src="module/search/view/search.js"></script>
 <script type="text/javascript" src="view/inc/translate.js"></script>
+<script type="text/javascript" src="module/login/model/validate_user.js"></script>
+       <script type="text/javascript" src="utils/utils.js"></script>
 
 <script type="text/javascript"> 
          function cambiarModo() { 

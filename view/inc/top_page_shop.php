@@ -34,6 +34,7 @@
       
       <link href="//fonts.googleapis.com/css?family=Sunflower:500,700" rel="stylesheet">
       <link href="//fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 
@@ -41,6 +42,8 @@
     <script type="text/javascript" src="module/shop/view/shop.js"></script>
     <script src="module/search/view/search.js"></script>
     <script type="text/javascript" src="view/inc/translate.js"></script>
+    <script type="text/javascript" src="module/login/model/validate_user.js"></script>
+       <script type="text/javascript" src="utils/utils.js"></script>
     
     <script type="text/javascript"> 
          function cambiarModo() { 

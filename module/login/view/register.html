@@ -1,0 +1,57 @@
+
+<body class="darkfos">
+    <div class="container_login">
+    
+        <form id="signup" name="formregister" class="formregister">
+    
+            <div class="header">
+            
+                <h3>Crea una cuenta en ViniloShop</h3>
+                
+               
+                
+            </div>
+            
+            <div class="sep"></div>
+    
+            <div class="inputs">
+            
+               <p> <input type="text" name="username" placeholder="Nombre de usuario" autofocus /><span id="e_userr" class="error">
+                <?php
+                    $e_userr="";
+                    echo "$e_userr";
+                ?>
+            </span></p>
+            
+               <p><input type="text" name="email" placeholder="Email" /><span id="e_mail" class="error">
+                <?php
+                    $e_mail="";
+                    echo "$e_mail";
+                ?>
+            </span></p> 
+               
+               <p> <input type="password" name="password" placeholder="Contraseña" /><span id="e_passwordr" class="error">
+                <?php
+                    $e_passwordr="";
+                    echo "$e_passwordr";
+                ?>
+            </span></p> 
+
+               <p>  <input type="password" name="password2" placeholder="Repite la contraña" /><span id="e_rpasswordr" class="error">
+                <?php
+                    $e_rpasswordr="";
+                    echo "$e_rpasswordr";
+                ?>
+            </span></p> 
+                
+                
+               
+            <p class="submit"><input class="submit" type="button" name="commit" value="Register" id="register_btn"></p>
+               
+            
+            </div>
+    
+        </form>
+    
+    </div>
+    ​</body>

@@ -23,7 +23,7 @@
          var element ="";
          for(var i=0; i < data_shop.length; i++){
  
-            element = element +' <img class="imga1" id="'+data_shop[i].cod_producto+'" src="'+data_shop[i].ruta+'">';
+            element = element +' <div id="cuadro"><img class="imga1" id="'+data_shop[i].cod_producto+'" src="'+data_shop[i].ruta+'">  <i class="heart fa fa-heart-o"></i></div>';
  
        
           
@@ -659,7 +659,14 @@ function api_books(){
 }
 
 
-
+$(".star.glyphicon").click(function() {
+    $(this).toggleClass("glyphicon-star glyphicon-star-empty");
+  });
+  
+  $(".heart.fa").click(function() {
+    $(this).toggleClass("fa-heart fa-heart-o");
+  });
+  
 
 /* Document ready con funciones anteriores */
 

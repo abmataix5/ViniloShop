@@ -33,7 +33,7 @@
                   </div>
                   <div class="col-lg-4 col-md-3 right-side-cart">
                      <div class="cart-icons">
-                        <ul>
+                        <ul id="menu_bar_login">
                         <li>
                               <a class = "españa">........</a>
                            </li>
@@ -43,9 +43,10 @@
                            <li>
                               <span class="far fa-heart"></span>
                            </li>
-                           <li>
-                              <button type="button" data-toggle="modal" data-target="#exampleModal"> <span class="far fa-user"></span></button>
-                           </li>
+                           <li id="log_op">
+                            <a  href="index.php?page=controller_login&op=login_list"><span id="icon_login" class="far fa-user"></span></a>                          
+                          </li>
+                         
                            <li class="toyscart toyscart2 cart cart box_1">
                               <form action="#" method="post" class="last">
                                  <input type="hidden" name="cmd" value="_cart">
@@ -55,7 +56,10 @@
                                  </button>
                               </form>
                            </li>
-                    
+                         <!--   <li id="p_l">
+                             <div class="div2"></div>                      
+                          </li>  -->
+                
                            <li> <a type="button" class="btn btn-dark" onclick="cambiarModo()">Modo oscuro</a></li>
                         </ul>
                      </div>
@@ -67,12 +71,12 @@
                <span class="navbar-toggler-icon"></span>
                </button>
                <div class="collapse navbar-collapse justify-content-center" id="navbarSupportedContent">
-                  <ul class="navbar-nav ">
+                  <ul class="navbar-nav" id="menu_barr">
                      <li class="nav-item ">
                         <a class="nav-link" href="index.php?page=controller_home&op=list" data-tr="Inicio"> Home<span class="sr-only">(current)</span></a>
                      </li>
-                     <li class="nav-item">
-                        <a href="index.php?page=controller_stock&op=list"class="nav-link" data-tr="Stock">Stock</a>
+                     <li class="nav-item" id="op_stock" >
+                        <a href="index.php?page=controller_stock&op=list"class="nav-link"  id="stock_li" data-tr="Stock">Stock</a>
                      </li>
                      <li class="nav-item">
                         <a href="index.php?page=controller_order&op=list"class="nav-link" data-tr="DataTable">DataTable</a>
@@ -83,7 +87,7 @@
                    
                    
                      <li class="nav-item">
-                        <a  href="index.php?page=controller_contact&op=list" class="nav-link" data-tr="Contacto">Contact</a>
+                        <a  href="index.php?page=controller_contact&op=list"class="nav-link" data-tr="Contacto">Contact</a>
                      </li>
                   </ul>
                </div>
@@ -91,3 +95,6 @@
          </div>
 
         </div>
+
+       
+   
