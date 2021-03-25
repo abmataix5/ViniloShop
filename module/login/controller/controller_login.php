@@ -79,17 +79,16 @@
 	
 				try{
 				
-				 	   $token = ($_POST['token']);  
-					  /*   echo json_encode($token);   */
-					/* echo($token);   */
+				 	 
+				
 					 
-					 	    $user = decode_token("eyJ0eXAiOiJKV1QiLCAiYWxnIjoiSFMyNTYifQ.eyAgJ2lhdCc6LScxNjE2NjAwMjQ3Jy0sJ2V4cCc6LScxNjE2NjAzODQ3Jy0sJ25hbWUnOiAnLWFiZWwtJ30.W0nxyPJ2j9F-dlbKvfKxsas2yvUQTKeBIxN9t08o9FM");
+					 	    $user = decode_token($_POST['token']);
 						
 							$user = user_from_token($user);  
 			
 							$daologin = new DAOlogin();
 							$rlt = $daologin->select_user_all($user);   
-							/*  echo json_encode($rlt);     */
+							
 				} catch(Exception $e){
 					echo json_encode("error");
 				}

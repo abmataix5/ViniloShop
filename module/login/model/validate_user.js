@@ -102,9 +102,9 @@ function register_click(){
 				},
 				success: function(response){	
 					console.log(response);					
-					if(response==="ok"){
+					if(response==="All ok"){
 					/* lo mandamos al login para que inicie sesion */
-						setTimeout(' window.location.href = "index.php?page=controller_login&op=login_list"; ',1000);
+						setTimeout(' window.location.href = "index.php?page=controller_home&op=list"; ',1000); 
 					}else if (response=="okay") {
 						alert("Debes realizar login para completar tu compra");
 						setTimeout(' window.location.href = window.location.href; ',1000);
@@ -176,7 +176,7 @@ function login_click(){
 				success: function(token_return){
 						
 			   		console.log(token_return);		
-					if(token_return!="Error"){
+					if(token_return!="El usuario no existe"){
 						console.log("tamo bien");
 						localStorage.setItem("token", token_return);
 				
