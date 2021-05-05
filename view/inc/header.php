@@ -56,10 +56,10 @@
                                  </button>
                               </form>
                            </li>
-                         <!--   <li id="p_l">
-                             <div class="div2"></div>                      
-                          </li>  -->
-                
+                           <li id="p_l">
+                              0                   
+                          </li>  
+                        <!--   <li> <a type="button"  href="index.php?page=controller_cart&op=cart_list" class="btn btn-dark" >Cart</a></li> -->
                            <li> <a type="button" class="btn btn-dark" onclick="cambiarModo()">Modo oscuro</a></li>
                         </ul>
                      </div>

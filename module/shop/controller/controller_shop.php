@@ -338,6 +338,43 @@
                                 }
             
                             break;
+
+                            case 'insert_like':
+                                                        
+                                    try {
+                                        $daoshop = new DAOShop();
+                                        $rlt = $daoshop->insert_like($_POST['username'],$_POST['cod_producto']);
+                                    } catch (Exception $e) {
+                                        echo "Error al registrarse";
+                                        exit();
+                                    }
+                                    if(!$rlt){
+                                        echo ("Error al like");
+                                        exit();
+                                    }else{
+                                     echo ("All ok");
+                                    }	
+                            
+                            break;
+
+
+                            case 'delete_like':
+                                                        
+                                try {
+                                    $daoshop = new DAOShop();
+                                    $rlt = $daoshop->delete_like($_POST['username'],$_POST['cod_producto']);
+                                } catch (Exception $e) {
+                                    echo "Error al registrarse";
+                                    exit();
+                                }
+                                if(!$rlt){
+                                    echo ("Error al like");
+                                    exit();
+                                }else{
+                                 echo ("All ok");
+                                }	
+                        
+                        break;
       
 
 

@@ -35,7 +35,7 @@ function loadMenu() {
 
            if (data[0].tipo === 'admin') {
             console.log("menu admin");
-
+            localStorage.setItem('user',data[0].username );   
             /* Quitamos la opcion login ya que ya se ha logueado */
         
                 $('#icon_login').remove();
@@ -43,14 +43,15 @@ function loadMenu() {
             /* Añadimos icono perfil avatar */
              $('<li></li>').attr({}).html('<div class="div2" style = "background : url(' + data[0].avatar + ') "></div> <p>'+data[0].username+' </p> ').appendTo('#menu_bar_login');
              
-                  
+          
 
    
    
            }else if (data[0].tipo === 'client') {
 
             console.log("dentro tipo cliente");
-
+            localStorage.setItem('user',data[0].username ); 
+            
             /* Añadimos icono perfil avatar */
             $('<li></li>').attr({}).html('<div class="div2" style = "background : url(' + data[0].avatar + ') "></div><p>'+data[0].username+' </p>').appendTo('#menu_bar_login');
             
@@ -61,8 +62,8 @@ function loadMenu() {
         
             /* Quitamos la opcion stockl, solo la tendra disponible el usuario de tipo admin */
           
-        
-      
+            $('#stock_li').remove();
+             
            }
                  
        });
@@ -88,6 +89,7 @@ function logOut() {
 
     console.log("K.O user");
     localStorage.removeItem('token');
+    localStorage.removeItem('user');
     window.location.href = "index.php?page=controller_home&op=list";
     $('.div2').remove();
 }

@@ -187,7 +187,7 @@
     padding: 10px 10px 10px 10px;
     margin: 10px;
     display:inline-block;
-    width: 250px;
+    width: 250px; height: 250px;
     text-align: center;
     cursor: pointer;
   }
@@ -485,8 +485,8 @@ input:-moz-placeholder {
 
 
 .heart {
-  font-size: 25px;
-	color:red;
+  font-size: 135px;
+  cursor: pointer;
 }
 #cuadro{
   float:left;
@@ -496,3 +496,24 @@ input:-moz-placeholder {
   border-left-width: thin;
   border: lawngreen;
 }
+.btn_compra{
+  text-decoration: none;
+  padding: 3px;
+  padding-left: 10px;
+  padding-right: 10px;
+  font-family: helvetica;
+  font-weight: 50;
+  font-size: 15px;
+  font-style: italic;
+  color: hsl(0, 100%, 100%);
+
+  background-color: #678d00;
+  border-radius: 15px;
+  border: 3px double #fafffa;
+  cursor: pointer;
+}
+.btn_compra:hover{
+  opacity: 0.6;
+  text-decoration: none;
+}
+

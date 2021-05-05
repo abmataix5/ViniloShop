@@ -23,13 +23,22 @@
          var element ="";
          for(var i=0; i < data_shop.length; i++){
  
-            element = element +' <div id="cuadro"><img class="imga1" id="'+data_shop[i].cod_producto+'" src="'+data_shop[i].ruta+'">  <i class="heart fa fa-heart-o"></i></div>';
+            element = element +' <div id="cuadro"><img class="imga1" id="'+data_shop[i].cod_producto+'" src="'+data_shop[i].ruta+'">  <br><i id="'+data_shop[i].cod_producto+'" class="heart fa fa-heart-o"></i><a class="btn_compra">Comprar</a></div>';
  
        
           
          }  
-         $('#container_shop').html(element);        
-       
+         $('#container_shop').html(element);  
+
+         /* Botones favorito y compra */
+
+                $('.btn_compra').on('click', function (e) {
+                    console.log("ie makina");
+                    check_token();
+                });
+
+                button_fav();
+      
     /* Entra aquí cuando no hay ningun producto  */
 
         }else if(data_shop.length < 1) {
@@ -102,7 +111,7 @@
                     '<td>Precio</td>'+
                     '<td>'+data_shop.precio+'</td>'+
                 '</tr>'+
-                '<tr><td><button id="volver_shop">Volver</button></td></tr>'
+                '<tr><td><button id="volver_shop">Volver</button><a class="btn_compra">Comprar</a></td></tr>'
                 
             '</table>'
 
@@ -116,6 +125,7 @@
           
        }
    })// end done
+
 
 }
 
@@ -600,7 +610,7 @@ console.log("in pages");
                 var total_products = data_filtros.length;
                 console.log(total_products);
 
-                let pages = (total_products / 9);
+                let pages = (total_products / 12);
                 
                 /* Añadimos esto para que no se pierda ningun producto*/
                     if(pages %2 != 0){
@@ -617,7 +627,7 @@ console.log("in pages");
                         next: '-->',
                         prev: '<--'
                     }).on("page", function (e, num) {
-                        let offset = 9 * (num - 1);
+                        let offset = 12 * (num - 1);
                         ajaxForSearch("module/shop/controller/controller_shop.php?op=data_shop&offset=" + offset);
                         });
 
@@ -659,14 +669,42 @@ function api_books(){
 }
 
 
-$(".star.glyphicon").click(function() {
-    $(this).toggleClass("glyphicon-star glyphicon-star-empty");
-  });
-  
-  $(".heart.fa").click(function() {
-    $(this).toggleClass("fa-heart fa-heart-o");
-  });
-  
+
+function check_token_fav(){
+
+   var token = localStorage.getItem('token');
+   console.log(token);
+   var user = localStorage.getItem('user');
+   console.log(user);
+   
+   if(token == null){
+    setTimeout(' window.location.href = "index.php?page=controller_login&op=login_list"; ',1000);
+   }else{
+       console.log("Sesión iniciada puede dar fav y carrito");
+
+       ajaxPromise('module/shop/controller/controller_shop.php?&op=insert_like'  , 'POST', 'JSON', { "cod_producto": localStorage.getItem('click_id') ,"username": user  }).then(function(data) {
+         
+       });
+   }
+ 
+}
+
+
+
+function button_fav(){
+
+    $('.heart').on('click', function (e) {
+        var id = this.getAttribute('id');
+        localStorage.setItem('click_id',id);
+        check_token_fav();
+        $(this).css('color', 'red'); 
+    
+        if($(this).children("i").hasClass("heart")){///si está en favoritos, borralo
+            console.log("olasas");
+        }
+
+    });
+}
 
 /* Document ready con funciones anteriores */
 
@@ -680,6 +718,7 @@ $(document).ready(function(){
    map_shop(); 
    pagination(); 
    api_books();
+ 
 });
 
 

@@ -5,7 +5,7 @@ include($path . "/model/connect.php");
 class DAOShop{
 
     function select_all_data($offset){
-        $sql = "SELECT * FROM stock LIMIT 9 OFFSET $offset";
+        $sql = "SELECT * FROM stock LIMIT 12 OFFSET $offset";
         
         $conexion = connect::con();
         $res = mysqli_query($conexion, $sql);
@@ -142,7 +142,31 @@ class DAOShop{
         return $res;
     }
 
+    function insert_like(){
+        $nombre=$_POST['username'];
+        $producto=$_POST['cod_producto'];
     
+        $sql ="INSERT INTO `favoritos`(`username`, `cod_producto`)
+        VALUES ('$nombre','$producto')";
+
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql);
+        connect::close($conexion);
+        return $res;
+    }
+
+    
+    function delete_like(){
+        $nombre=$_POST['username'];
+        $producto=$_POST['cod_producto'];
+    
+        $sql ="DELETE FROM `favoritos` WHERE username = $nombre and cod_producto = $producto";
+
+        $conexion = connect::con();
+        $res = mysqli_query($conexion, $sql);
+        connect::close($conexion);
+        return $res;
+    }
 
 
 
